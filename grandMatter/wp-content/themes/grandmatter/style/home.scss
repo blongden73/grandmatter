@@ -1,0 +1,124 @@
+.grand-matter__splash {
+    min-height: 600px;
+    height: 100vh;
+    background-color: $pink;
+    width: 100%;
+    position: relative;
+    display: block;
+
+
+    @include mq($from: desktop){
+      display: none;
+    }
+
+    &.fadeIn {
+      display: block;
+      background-color: black;
+    }
+}
+
+.grand-matter__image {
+  min-height: 600px;
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center center;
+  display: none;
+  animation: fadeIn;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-delay: 0.5s;
+  opacity: 0;
+}
+
+.grand-matter__arrow {
+  display: none;
+  width: 60px;
+  @include mq($from: desktop) {
+    position: absolute;
+    left: 5%;
+    bottom: 20px;
+    display: block;
+  }
+
+  svg {
+    width: 100%;
+    path {
+      fill: white;
+    }
+  }
+
+}
+
+.grand-matter__type {
+
+  @include mq($until: 325px) {
+    width: 246px;
+  }
+  width: 300px;
+  color: white;
+  position: absolute;
+  bottom: 0px;
+  left: 10px;
+  z-index: 0;
+
+  @include mq($from: desktop) {
+    right: 5%;
+    left: auto;
+    width: 648px;
+  }
+
+  .grand-matter__logo-top {
+    opacity: 1;
+
+    @include mq($from: desktop) {
+      animation: fadeInRight;
+      animation-duration: 0.5s;
+      animation-delay: 1s;
+      animation-fill-mode: both;
+      animation-iteration-count: 1;
+      opacity: 0;
+    }
+    svg {
+      width: 80%;
+      height: auto;
+
+      path {
+        fill: white;
+      }
+
+      @include mq($from: desktop) {
+        width: 530px;
+        height: auto;
+      }
+    }
+  }
+
+  .grand-matter__logo-bottom {
+    opacity: 1;
+    margin-left: 0px;
+
+    @include mq($from: desktop){
+      margin-left: 104px;
+      animation: fadeInLeft;
+      animation-duration: 0.5s;
+      animation-delay: 1.5s;
+      animation-fill-mode: both;
+      animation-iteration-count: 1;
+      opacity: 0;
+    }
+
+    svg {
+      width: 100%;
+      height: auto;
+      margin-left: 41px;
+
+      @include mq($from: desktop) {
+        margin-left: auto;
+        width: 590px;
+        height: auto;
+      }
+    }
+  }
+}

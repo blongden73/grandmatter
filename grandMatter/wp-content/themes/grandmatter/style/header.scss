@@ -1,0 +1,145 @@
+.grand-matter__header {
+    width: 100%;
+    position: fixed;
+    height: 50px;
+    z-index: 900000000;
+
+    @include mq($from: desktop) {
+      height: 80px;
+    }
+
+    &.blue {
+      background-color: $blue;
+    }
+}
+
+.gm-container {
+    position: relative;
+
+    #menu-main-menu {
+        margin-left: 10px;
+    }
+}
+
+.grand-matter__logo {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+
+    &:hover {
+      .main-logo {
+        @include mq($from: desktop) {
+            opacity: 0;
+        }
+      }
+      .secondary-logo {
+        opacity: 1;
+        left: 5px;
+      }
+    }
+
+    svg.main-logo {
+        width: 100%;
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    svg.secondary-logo {
+      display: none;
+      transition: all 0.2s ease-in-out;
+
+      @include mq($from: desktop) {
+        display: block;
+        width: 117px;
+        position: absolute;
+        top: 6px;
+        height: auto;
+        left: -5px;
+        opacity: 0;
+
+        path {
+          fill: white;
+        }
+      }
+    }
+
+    @include mq($from: desktop) {
+      left:0px;
+      width: 60px;
+      height: 60px;
+    }
+}
+
+.grand-matter__menu {
+    @include grand-matter-head($massive);
+    position: absolute;
+    display: none;
+    top: 50px;
+    color: white;
+    width: 100%;
+    background-color: $blue;
+    min-height: 600px;
+    height: 100vh;
+    transition: all 0.2s ease-in-out;
+    padding-top: 20px;
+    z-index: 20000;
+
+    &.clicked {
+      display: block;
+      padding-top: 10px;
+
+    }
+
+    @include mq($from: desktop) {
+      @include grand-matter-sub($smallish);
+      font-style: italic;
+      display: block;
+      background-color: transparent;
+      width: auto;
+      height: auto;
+      min-height: auto;
+      top: -5px;
+      color: white;
+      right: 8px;
+    }
+
+    li {
+      @include mq($from: desktop) {
+        float: left;
+        margin-right: 20px;
+      }
+    }
+}
+
+.grand-matter__hamburger {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    height: 30px;
+    width: 30px;
+
+    .ham-top, .ham-middle, .ham-bottom {
+        height: 6px;
+        width: 100%;
+        background-color: white;
+        margin-bottom: 4px;
+        transition: all 0.2s ease-in-out;
+    }
+
+    &.clicked {
+        .ham-top {
+          transform: rotate(45deg);
+          margin-top: 10px;
+        }
+
+        .ham-middle {
+            opacity: 0;
+        }
+
+        .ham-bottom {
+            transform: rotate(-45deg);
+            margin-top: -20px;
+        }
+    }
+}

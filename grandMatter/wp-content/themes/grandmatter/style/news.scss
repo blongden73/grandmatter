@@ -1,0 +1,149 @@
+.grand-matter__news-wrapper {
+	display: none;
+	overflow: auto;
+	width: 100%;
+	background-color: #0c2440;
+	z-index: 1000;
+    position: relative;
+    padding-top: 20px;
+
+    .grand-matter__intro {
+    	@include mq($from: desktop) {
+    		margin-bottom: 60px;
+    	}
+    }
+
+    &.news__on {
+    	display: block;
+    }
+}
+
+.grand-matter__artist-title.news-title{
+	h1 {
+		@include mq($from: desktop){
+			left: -24px;
+		}
+	}
+}
+
+.grand-matter__headline-news {
+	h1 {
+		color: white;
+		@include grand-matter-head($medium + 4px);
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+	p {
+		color: white;
+		@include grand-matter-sub($small);
+		line-height: $small + 4px;
+		width: 100%;
+		margin-top: 10px;
+
+		&.cta {
+			display: inline;
+		}
+	}
+}
+
+.grand-matter__artist-image.news-image {
+	height: auto;
+
+	@include mq($from: desktop) {
+		width: 23%;
+	}
+
+	&:hover{
+		.cta {
+			border-bottom: 1px solid $pink;
+		}
+	}
+
+	&:nth-child(odd){
+		margin-top: 0px;
+	}
+}
+
+.grand-matter__featured-image.news-featured-image {
+	height: 300px;
+
+	@include mq($from: desktop){
+		height: 350px;
+	}
+}
+
+.grand-matter__more-news {
+	position: absolute;
+	right: 5%;
+	bottom: -54px;
+
+	@include mq($from: desktop) {
+		right: 7%;
+		bottom: 32px;
+	}
+
+	&:after {
+		width: 18px;
+    height: 18px;
+    content: '';
+    display: block;
+    float: right;
+    transform: rotate(45deg);
+    margin-left: 10px;
+    border-top: 4px solid $pink;
+    border-right: 4px solid $pink;
+    margin-top: 6px;
+		transition: 0.5s ease-in-out all;
+	}
+
+	&:hover {
+		&:after {
+			transform: rotate(45deg) translate(5px,-5px);
+		}
+	}
+
+	a {
+		&:hover {
+			border-bottom: 1px solid $pink;
+		}
+		h1 {
+			color: $pink;
+			display: inline;
+		}
+	}
+}
+
+.grand-matter__news-overview {
+	.grand-matter__news-wrapper {
+		display: block;
+
+		@include mq($from: desktop) {
+			padding-top: 90px;
+		}
+	}
+
+	.grand-matter__artist-image {
+		height: auto;
+
+		&:hover{
+			.cta {
+				border-bottom: 1px solid $pink;
+			}
+		}
+	}
+
+	.grand-matter__featured-image {
+		height: 300px;
+
+		@include mq($from: desktop){
+			height: 350px;
+		}
+	}
+
+	.grand-matter__artist-title {
+		h1 {
+			left: -30px;
+		}
+	}
+
+}

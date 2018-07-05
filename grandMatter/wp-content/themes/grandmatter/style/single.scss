@@ -1,0 +1,380 @@
+.sharedaddy {
+  position: relative;
+
+  @include mq($from: desktop) {
+    position: absolute;
+    bottom: 0px;
+  }
+}
+
+//share button
+.sd-title {
+  font-style: italic;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  width: 154px;
+}
+.sd-content {
+  ul {
+    overflow: auto;
+
+    li {
+      float: left;
+      padding: 6px 8px 2px 0px;
+    }
+  }
+}
+
+.jp-relatedposts {
+  width: 60px;
+  float: left;
+  display: none;
+}
+
+.grand-matter__artist-featured {
+  height: 600px;
+  width: 100%;
+  background-color: darken($blue, 5%);
+  position: relative;
+
+  img {
+    height: 100%;
+    width: 100%;
+    @supports(object-fit: cover) {
+      object-fit: cover;
+    }
+  }
+}
+
+.grand-matter__artist-intro {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 10px;
+  margin-top: 10px;
+
+  @include mq($from: desktop) {
+    margin-bottom: 40px;
+    margin-top: 40px;
+  }
+}
+
+.grand-matter__artist-intro--wrapper {
+  @include mq($from: tablet) {
+    float: left;
+    width: 48%;
+    margin-right: 2%;
+  }
+}
+
+.grand-matter__featured-name {
+  padding-top: 2px;
+
+  h1{
+    color: white;
+    word-spacing: 130000000px;
+    @include grand-matter-sub(calc(#{$massive} - 2px));
+    line-height: calc(#{$massive} - 6px);
+
+    @include mq($from: desktop) {
+      @include grand-matter-sub($splash);
+      line-height: calc(#{$splash} - 14px);
+    }
+
+    span {
+      display: block;
+      margin-left: 58px;
+    }
+  }
+}
+
+.grand-matter__artist-description {
+  @include grand-matter-sub($small);
+  line-height: calc(#{$small + 6px});
+  color: white;
+  padding-top: 20px;
+  padding-bottom: 80px;
+  overflow: auto;
+}
+
+.grand-matter__artist-intro--image {
+  width: 100%;
+
+  @include mq($from: tablet) {
+    float: left;
+    width: 48%;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.grand-matter__artist-content {
+  overflow: hidden;
+  padding-bottom: 60px;
+  .text {
+      p {
+      @include grand-matter-sub($small);
+      line-height: $medium;
+      color: white;
+      margin-bottom: 10px;
+
+          @include mq($from: desktop) {
+            width: 100%;
+          }
+      strong {
+        font-weight: 900;
+      }
+      em {
+        font-style: italic;
+      }
+      }
+
+      ul {
+        margin-top: 10px;
+        margin-bottom: 20px;
+        clear: both;
+        list-style: none;
+
+        li{
+          list-style: none;
+          @include grand-matter-sub($small);
+          color: white;
+
+          &:before {
+            display: block;
+            content: '—';
+            float: left;
+            margin-right: 5px;
+          }
+        }
+      }
+
+      blockquote {
+        p {
+          @include grand-matter-sub($medium);
+          color: $pink;
+        }
+      }
+  }
+}
+
+.grand-matter__artist-col-1, .grand-matter__artist-col-2 {
+  width: 100%;
+
+  @include mq($from: tablet) {
+    width: 48%;
+    float: left;
+    margin-right: 2%;
+  }
+}
+
+.grand-matter__artist-col-2 {
+  @include mq($from: tablet) {
+    margin-left: 0;
+    margin-top: 80px;
+  }
+}
+
+.grand-matter__portfolio-image {
+  position: relative;
+  cursor: pointer;
+  @include mq($from: tablet) {
+    width: 100%;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  .grand-matter__artist-hover {
+    position: absolute;
+    bottom: 23px;
+    right: 0px;
+    z-index: 20000;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    background-color: $pink;
+    width: 30px;
+    height: 30px;
+
+    svg {
+      width: 90%;
+      height: auto;
+      transform: rotate(-224deg);
+      margin-left: 3px;
+      margin-top: 2px;
+
+      path {
+        fill: $blue;
+      }
+    }
+  }
+
+  &:hover {
+    .grand-matter__artist-hover {
+      opacity: 1;
+    }
+  }
+}
+
+.grand-matter__artist-video {
+  margin-bottom: 60px;
+
+  .video-wrapper {
+  	position: relative;
+  	padding-bottom: 56.25%; /* 16:9 */
+  	padding-top: 25px;
+  	height: 0;
+    margin-bottom:20px;
+  }
+  .video-wrapper iframe {
+  	position: absolute;
+  	top: 0;
+  	left: 0;
+  	width: 100% !important;
+  	height: 100% !important;
+  }
+}
+
+.grand-matter__lightbox {
+  position: fixed;
+  min-height: 600px;
+  width: 100%;
+  height: 100vh;
+  background-color: $blue;
+  display: none;
+  z-index: 2000000000;
+  top: 0px;
+
+  &.clicked {
+    display: block;
+  }
+}
+
+.grand-matter__lightbox-container {
+  height: 100vh;
+  min-height: 600px;
+  li {
+    opacity: 0;
+    list-style: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+
+    @include mq($from: desktop) {
+      width: 800px;
+      height: 600px;
+    }
+
+    @include mq($from: wide) {
+      width: 900px;
+      height: 700px;
+    }
+
+    &.visible {
+      opacity: 1;
+
+    }
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+}
+
+.grand-matter__lightbox-right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100px;
+
+  &:hover {
+    svg {
+      left: 70%;
+      path {
+        fill: $pink;
+      }
+    }
+  }
+}
+
+.grand-matter__lightbox-left {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100px;
+
+  &:hover {
+    svg {
+      left: 30%;
+      path {
+        fill: $pink;
+      }
+    }
+  }
+}
+
+.grand-matter__lightbox-left, .grand-matter__lightbox-right {
+  svg {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+    z-index: 200000;
+
+    path {
+      fill: white;
+    }
+  }
+}
+
+.grand-matter__lightbox-logo {
+  position: absolute;
+  width: 100%;
+  z-index: 2000;
+
+  .main-logo {
+    display: none;
+  }
+  .secondary-logo {
+    display: block;
+    opacity: 1;
+    width: 300px;
+    height: auto;
+    right: 20px;
+    top: 10px;
+    position: absolute;
+
+    path {
+      fill: white;
+    }
+  }
+}
+
+.grand-matter__lightbox-close {
+  position: absolute;
+  top: 10px;
+  right: 30px;
+  z-index: 200000;
+  cursor: pointer;
+  transition: transform 0.5s ease-in-out;
+
+  &:hover {
+    transform: rotate(360deg);
+  }
+
+  svg {
+    path {
+      fill: $pink;
+    }
+  }
+}
