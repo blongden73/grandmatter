@@ -23,6 +23,14 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
 var isiPad = navigator.userAgent.match(/iPad/i) != null;
 var ipadWidth = screen.width;
 
+function isEven(n) {
+   return n % 2 == 0;
+}
+
+function isOdd(n) {
+   return Math.abs(n % 2) == 1;
+}
+
 var google = '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><g fill="#DB5442"><path d="M12.75 8.767c-1.27-.037-2.123 1.24-1.902 2.908.22 1.67 1.427 2.836 2.698 2.875 1.27.037 2-1.037 1.782-2.707-.22-1.668-1.307-3.037-2.577-3.076zM13.285 17.966c-1.895-.02-3.5 1.195-3.5 2.607 0 1.44 1.37 2.64 3.263 2.64 2.663 0 3.59-1.126 3.59-2.567 0-.174-.02-.344-.06-.508-.21-.814-1.037-1.262-2.066-1.977-.373-.12-.785-.19-1.227-.194z"/><path d="M16 0C7.164 0 0 7.164 0 16c0 8.838 7.164 16 16 16s16-7.162 16-16c0-8.836-7.164-16-16-16zm1.223 11.773c0 1.043-.578 1.883-1.393 2.52-.797.623-.947.883-.947 1.412 0 .45.95 1.123 1.39 1.45 1.52 1.144 1.83 1.862 1.83 3.29 0 1.783-1.92 3.555-5.043 3.555-2.74 0-5.053-1.113-5.053-2.896 0-1.81 1.918-3.695 4.658-3.695.3 0 .572-.01.855-.01-.375-.362-.678-.677-.678-1.228 0-.328.104-.64.25-.92-.148.01-.3.02-.457.02-2.25 0-3.562-1.582-3.562-3.564C9.073 9.765 11.068 8 13.46 8h4.716l-1.053 1.107h-1.24c.876.5 1.34 1.53 1.34 2.666zm6.772-.29H21.82v2.173h-1.09v-2.174h-2.175v-1.088h2.176V8.218h1.09v2.176h2.175v1.088z"/></g></svg>';
 var twitter = '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><path fill="#2AA9E0" d="M16 0C7.164 0 0 7.164 0 16c0 8.838 7.164 16 16 16s16-7.162 16-16c0-8.836-7.164-16-16-16zm6.362 12.738c.008.14.01.28.01.424 0 4.338-3.3 9.34-9.34 9.34-1.853 0-3.578-.543-5.03-1.475.257.03.518.045.782.045 1.54 0 2.953-.523 4.076-1.404-1.436-.027-2.648-.977-3.065-2.28.2.038.405.06.617.06.3 0 .59-.04.864-.115-1.5-.303-2.633-1.63-2.633-3.22v-.04c.443.246.95.393 1.487.41-.88-.588-1.46-1.594-1.46-2.732 0-.6.162-1.165.444-1.65 1.618 1.987 4.038 3.294 6.766 3.43-.056-.24-.085-.49-.085-.747 0-1.812 1.47-3.28 3.284-3.28.942 0 1.796.397 2.394 1.034.748-.146 1.45-.42 2.086-.797-.246.768-.766 1.41-1.443 1.816.664-.078 1.297-.256 1.885-.516-.44.657-.998 1.235-1.64 1.698z"/></svg>';
 var facebook = '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><path fill="#36609F" d="M16 0C7.164 0 0 7.164 0 16c0 8.837 7.164 16 16 16s16-7.162 16-16c0-8.836-7.164-16-16-16zm3.428 16.006h-2.242V24h-3.323v-7.994h-1.58v-2.824h1.58v-1.828c0-1.31.62-3.354 3.352-3.354l2.46.01v2.742h-1.784c-.29 0-.704.145-.704.77v1.66h2.533l-.292 2.824z"/></svg>';
@@ -137,6 +145,28 @@ function socialEnhance() {
   document.querySelector('.sd-title').innerHTML = 'Share';
 }
 
+function reorderPosts() {
+    var artistMedia = document.getElementsByClassName('grand-matter__artist-media');
+    var mediaContainer = document.querySelector('.artist-update.empty');
+    var odd = [];
+    var even = [];
+
+    for(var i = 0; i < artistMedia.length; i++) {
+        if (isOdd(i)){
+            console.log(i, artistMedia[i], 'odd');
+            odd.push('<div class="grand-matter__artist-media">' + artistMedia[i].innerHTML.replace(/(\s\s\s*)/g, ' ') + '</div>');
+        }else {
+            console.log(i, artistMedia[i], 'even');
+            even.push('<div class="grand-matter__artist-media">' + artistMedia[i].innerHTML.replace(/(\s\s\s*)/g, ' ')+ '</div>');
+        }
+    }
+
+    var reOrder = even.concat(odd);
+    console.log(reOrder);
+
+    mediaContainer.innerHTML = reOrder.join('');
+}
+
 function init() {
   if(homeCheck){
     backgroundImage();
@@ -149,6 +179,7 @@ function init() {
   }
   if(artistPageCheck && !isMobile){
     artistLightBox();
+    reorderPosts();
   }
   if(shareButton) {
     socialEnhance();

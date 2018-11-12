@@ -157,6 +157,30 @@
         }
       }
   }
+
+  &.artist-update {
+      @include mq($from: desktop) {
+          display: none;
+          column-count: 2;
+      }
+
+      &.empty {
+          display: none;
+          
+          @include mq($from: desktop) {
+              display: block;
+          }
+      }
+  }
+  .grand-matter__artist-media {
+      margin-bottom: 10px;
+
+      img {
+          width: 100%;
+          height: auto;
+          display: block;
+      }
+    }
 }
 
 .grand-matter__artist-col-1, .grand-matter__artist-col-2 {
