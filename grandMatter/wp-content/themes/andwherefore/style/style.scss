@@ -1,0 +1,19 @@
+@import '_mq';
+@import 'fonts';
+@import 'general';
+@import 'header';
+@import 'animation';
+@import 'home';
+@import 'artists';
+@import 'news';
+@import 'single';
+@import 'about';
+@import 'contact';
+
+@import 'andwherefore';
+@import 'gallery';
+
+//example
+// @include mq($from: desktop) {
+//   color: blue;
+// }

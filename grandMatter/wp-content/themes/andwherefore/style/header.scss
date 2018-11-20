@@ -1,0 +1,143 @@
+.grand-matter__header {
+    width: 100%;
+    position: fixed;
+    height: 50px;
+    z-index: 900000000;
+
+    @include mq($from: desktop) {
+      height: 80px;
+    }
+
+    &.blue {
+      background-color: $green;
+    }
+}
+
+.gm-container {
+    position: relative;
+
+    #menu-main-menu {
+        margin-left: 10px;
+    }
+}
+
+.grand-matter__logo {
+    width: 62px;
+    height: 62px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+
+    &:hover {
+      .main-logo {
+        @include mq($from: desktop) {
+            opacity: 0;
+        }
+      }
+      .secondary-logo {
+        opacity: 1;
+      }
+    }
+
+    svg.main-logo {
+        width: 100%;
+        height: auto;
+        transition: opacity 0.2s ease-in-out;
+
+        path {
+            fill: white;
+        }
+    }
+
+    svg.secondary-logo {
+      display: none;
+      transition: all 0.2s ease-in-out;
+
+      @include mq($from: desktop) {
+        display: block;
+        width: 386px;
+        position: absolute;
+        top: 0px;
+        height: auto;
+        opacity: 0;
+
+        path {
+          fill: white;
+        }
+      }
+    }
+
+    @include mq($from: desktop) {
+      left:0px;
+      width: 106px;
+      height: 106px;
+    }
+
+    .aw__gallery & {
+        svg {
+            g path {
+                fill:#121212;
+            }
+            path {
+                fill:#121212;
+            }
+        }
+    }
+}
+
+.grand-matter__menu {
+    @include grand-matter-head($massive);
+    position: absolute;
+    display: none;
+    top: 50px;
+    color: white;
+    width: 100%;
+    background-color: $blue;
+    min-height: 600px;
+    height: 100vh;
+    transition: all 0.2s ease-in-out;
+    padding-top: 20px;
+    z-index: 20000;
+
+    &.clicked {
+      display: block;
+      padding-top: 10px;
+
+    }
+}
+
+.grand-matter__hamburger {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    height: 30px;
+    width: 30px;
+
+    .ham-top, .ham-middle, .ham-bottom {
+        height: 6px;
+        width: 100%;
+        background-color: white;
+        margin-bottom: 4px;
+        transition: all 0.2s ease-in-out;
+
+        .aw__gallery & {
+            background-color: #121212;
+        }
+    }
+
+    &.clicked {
+        .ham-top {
+          transform: rotate(45deg);
+          margin-top: 10px;
+        }
+
+        .ham-middle {
+            opacity: 0;
+        }
+
+        .ham-bottom {
+            transform: rotate(-45deg);
+            margin-top: -20px;
+        }
+    }
+}

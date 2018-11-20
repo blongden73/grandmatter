@@ -1,0 +1,117 @@
+.grand-matter__animation {
+  display: none;
+  height: 100vh;
+  background-color: white;
+  width: 100%;
+  overflow: hidden;
+
+  @include mq($from: desktop) {
+    display: block;
+    overflow: visible;
+  }
+
+  &.fadeOut {
+    display: none;
+  }
+}
+
+.grand-matter__slide {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  border: 10px solid white;
+  box-sizing: border-box;
+  display: none;
+  transition: opacity 0.5s ease-in-out;
+
+  @include mq($until: tablet) {
+    svg {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &.visible {
+    display: block;
+  }
+
+  &.layout-1 {
+    svg {
+      position: absolute;
+      right: 0px;
+      top: 240px;
+    }
+  }
+
+  &.layout-2 {
+    svg {
+      position: absolute;
+      left: 606px;
+    }
+  }
+
+  &.layout-3 {
+    svg {
+      position: absolute;
+      top: -49px;
+      left: 170px;
+    }
+  }
+
+  &.layout-4 {
+    svg {
+      position: absolute;
+      bottom: 0px;
+    }
+  }
+
+  &.layout-5 {
+    svg {
+      position: absolute;
+      transform: rotate(-45deg);
+    }
+  }
+
+  &.layout-6 {
+    svg {
+      transform: rotate(-90deg);
+      position: absolute;
+      right: -140px;
+      bottom: 120px;
+    }
+  }
+
+  &.layout-7 {
+    svg {
+      position: absolute;
+      top: 250px;
+    }
+  }
+
+  &.layout-8 {
+    svg {
+      position: absolute;
+      bottom: 0px;
+      right: 320px;
+    }
+  }
+
+  &.layout-9 {
+    svg {
+      position: absolute;
+      bottom: 0px;
+      right: 320px;
+    }
+  }
+
+  &.layout-10 {
+    svg {
+      position: absolute;
+      right: 0px;
+      bottom: 0px;
+    }
+  }
+}

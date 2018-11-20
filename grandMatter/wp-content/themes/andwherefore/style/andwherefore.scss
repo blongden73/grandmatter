@@ -1,0 +1,405 @@
+.cond {
+    font-family: 'Druk XCond Super';
+}
+
+.wide {
+    font-family: 'Druk Text Wide';
+    font-weight: 900;
+    letter-spacing: -4px;
+}
+
+.aw__splash {
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+
+    .aw__top-image {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            display:block;
+
+            @include mq($from: desktop) {
+                object-fit: contain;
+            }
+        }
+
+        &.end {
+            .aw__splash-image {
+                opacity: 0 !important;
+
+                &:last-child {
+                    opacity: 1 !important;
+                }
+            }
+        }
+
+        .aw__splash-image {
+            position: absolute;
+            top: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+
+            &.visible {
+                opacity: 1;
+            }
+
+            &:nth-child(1) {
+                width: 43%;
+                height: 34%;
+
+                @include mq($from: desktop) {
+                    height: 56%;
+                }
+            }
+            &:nth-child(2) {
+                width: 70%;
+                height: 18%;
+                bottom: 0;
+                right: 0;
+                top: auto;
+                @include mq($from: desktop) {
+                    height: 40%;
+                }
+            }
+            &:nth-child(3){
+                width: 23%;
+                height: 35%;
+                bottom: 0;
+                top: auto;
+                @include mq($from: desktop) {
+                    height: 41.8%;
+                }
+            }
+            &:nth-child(4) {
+                width: 40%;
+                right: 0;
+                height: 23%;
+                @include mq($from: desktop) {
+                    height: 50%;
+                }
+            }
+            &:nth-child(5) {
+                width: 47%;
+
+                @include mq($from: desktop) {
+                    width: 100%;
+                }
+            }
+
+        }
+    }
+}
+
+.aw__splash-text {
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    top: 53%;
+    transform: translate(-50%,-50%);
+
+    h1 {
+        font-size: 54px;
+        line-height: 48px;
+        color: #fff;
+
+        @include mq($from: desktop) {
+            margin-left: 50px;
+        }
+
+        span {
+            display: block;
+        }
+
+        @include mq($from: tablet) {
+            font-size: 12.5vw;
+            line-height: 9.5vw;
+        }
+
+        @keyframes fadeType {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .wide {
+            margin-left: -2px;
+            animation-name: fadeType;
+            animation-duration: 0.5s;
+            animation-delay: 1s;
+            animation-fill-mode: forwards;
+            animation-iteration-count: 1;
+            opacity: 0;
+
+            @include mq($from: desktop) {
+                letter-spacing: -14px;
+                margin-left: -13px;
+                margin-top: 18px;
+            }
+        }
+
+        .cond {
+            font-size: 66px;
+            animation-name: fadeType;
+            animation-duration: 0.5s;
+            animation-delay: 1.5s;
+            animation-fill-mode: forwards;
+            animation-iteration-count: 1;
+            opacity: 0;
+
+            @include mq($from: desktop) {
+                font-size: 12.5vw;
+            }
+        }
+    }
+}
+
+.aw__trails {
+    width: 50%;
+    margin-left: auto;
+
+    @include mq($from: tablet) {
+        width: 25%;
+    }
+
+    .aw__trail-text {
+        color: #fff;
+
+        span {
+            display: block;
+        }
+
+        .aw__title {
+            font-family: 'caslon';
+            font-style: italic;
+
+            @include mq($from: tablet) {
+                font-size: 22px;
+            }
+        }
+    }
+}
+
+.aw__description {
+    width: 50%;
+    margin-left: auto;
+    font-family: 'caslon';
+    font-size: 18px;
+    line-height: 18px;
+    color: #fff;
+
+    @include mq($from: tablet) {
+        font-size: 25px;
+        line-height: 26px;
+        width: 25%;
+    }
+}
+
+.aw__season-divider {
+    height: 100vh;
+    background-color: $pink;
+    background-image: url('http://andwherefore.grandmatter.com/wp-content/uploads/2018/11/background__intro.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: $green;
+    @include grand-matter-head($big);
+
+    @include mq($from: tablet) {
+        @include grand-matter-head($massive);
+    }
+
+    h1 {
+        @include mq($from: tablet) {
+            width: 76%;
+            margin-left: 19%;
+            padding-top: 61px;
+        }
+
+        @include mq($from: desktop) {
+            width: 60%;
+        }
+    }
+}
+
+.aw__article-wrapper {
+    overflow: hidden;
+
+    &:nth-child(even) {
+        .grand-matter__artist-image {
+            float: right;
+        }
+    }
+}
+
+.aw__content-wrapper {
+    @include mq($from: desktop) {
+        float: left;
+        max-width: 40%;
+        padding-top: 48px;
+    }
+}
+
+.aw__label {
+    font-family: 'Druk XCond Super';
+    color: $pink;
+    font-size: 22px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    @include mq($from: tablet) {
+        font-size: 26px;
+    }
+
+    &.byline {
+        font-family: 'Druk Text Wide';
+        text-transform: capitalize;
+        margin-top: 10px;
+        letter-spacing: -1px;
+    }
+}
+
+.aw__title-article {
+    @include grand-matter-head($big);
+    color: #fff;
+
+    @include mq($from: tablet) {
+        @include grand-matter-head($massive);
+    }
+}
+
+.aw__excerpt {
+    @include grand-matter-sub($medium);
+    color: #fff;
+}
+
+.aw__big-news {
+    overflow: auto;
+    padding-bottom: 50px;
+    padding-top: 50px;
+
+    .aw__big-news-image {
+        width: 100%;
+        min-height: 1px;
+        position: relative;
+        z-index: 0;
+
+        @include mq($from: desktop) {
+            width: 50%;
+            float: left;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+    }
+
+    .aw__big-news-title {
+        margin-top: -50px;
+        z-index: 10;
+        position: relative;
+
+        @include mq($from: desktop) {
+            margin-top: 60px;
+            margin-left: -60px;
+            float: left;
+            max-width: 50%;
+        }
+
+        h1 {
+            @include grand-matter-head($big);
+            color: #fff;
+
+            @include mq($from: desktop) {
+                @include grand-matter-head($massive);
+            }
+        }
+
+        p {
+            font-family: 'caslon';
+            color: #fff;
+        }
+
+        h2 {
+            font-family: 'Druk XCond Super';
+        }
+
+    }
+
+    &.yellow {
+        background-color: $yellow;
+    }
+
+    &.pink {
+        background-color: $pink;
+
+        h1, h2, p {
+            color: $green;
+        }
+    }
+}
+
+.aw__top-images {
+    height: 80vh;
+    width: 100%;
+    position: relative;
+
+    img {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.page-title{
+    position: absolute;
+    bottom: -37px;
+    z-index: 10000;
+    width: 100%;
+
+    .grand-matter__artist-title {
+        h1 {
+            max-width: 100%;
+            color: #fff;
+            font-size: 45px;
+
+            @include mq($from: desktop) {
+                font-size: 100px;
+                letter-spacing: -7px;
+                margin-top: -37px;
+                line-height: 90px;
+            }
+        }
+    }
+}
+
+.aw__big-type-content {
+    padding-bottom: 50px;
+    @include grand-matter-sub($big);
+    color: #fff;
+
+    @include mq($from: tablet) {
+        width: 76%;
+        margin-left: 19%;
+        padding-top: 61px;
+    }
+
+    @include mq($from: desktop) {
+        width: 60%;
+    }
+}

@@ -1,0 +1,217 @@
+.grand-matter__footer {
+  overflow: auto;
+  background-color: darken($blue, 5%);
+  color: white;
+  padding-bottom: 20px;
+  padding-top: 20px;
+
+  h1 {
+    @include grand-matter-head($medium + 4px);
+    margin-bottom: 10px;
+    color: white;
+  }
+  h2 {
+    @include grand-matter-sub($small);
+    line-height: calc(#{$small} + 3px);
+
+    .email {
+      @include grand-matter-head($small);
+    }
+  }
+}
+
+.grand-matter__contact-title {
+  margin-bottom: 14px;
+  margin-top: 14px;
+
+  h1 {
+    @include grand-matter-head($big);
+    color: $pink;
+
+    @include mq($from: desktop) {
+      @include grand-matter-head($massive);
+      position: absolute;
+      left: -54px;
+      top: 60px;
+      transform: rotate(-90deg);
+    }
+  }
+}
+
+.grand-matter__footer-col {
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 20px;
+
+  @include mq($from: tablet) {
+    float: left;
+    width: 25%;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    box-sizing: border-box;
+    min-height: 182px;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-top: 10px;
+    position: relative;
+  }
+
+  &:first-child {
+    padding-left: 0;
+  }
+
+  &:last-child{
+    border:none;
+  }
+
+  &.social {
+    h2 {
+      clear: both;
+      padding-top: 10px;
+    }
+  }
+}
+
+.grand-matter__footer-info--wrapper {
+  @include mq($from: desktop){
+    position: absolute;
+    bottom: 40px;
+  }
+}
+
+.grand-matter__social-icon {
+  float: left;
+  width: 35px;
+  margin-right: 10px;
+
+  svg {
+    width: 100%;
+    height: auto;
+  }
+
+  &:hover {
+    svg {
+      path{
+        fill: $pink;
+      }
+    }
+  }
+}
+
+.grand-matter__newsletter {
+  overflow: hidden;
+  padding-bottom: 20px;
+
+  input {
+    margin-top: 20px;
+    color: white !important;
+    stroke: none;
+    outline: none;
+    width: 95%;
+    padding: 8px;
+    background-color: transparent;
+    border: 1px solid white;
+
+    &::placeholder {
+      color: white;
+    }
+
+
+    &.button{
+      width: 28%;
+      margin-top: 12px;
+      @include grand-matter-head($small);
+      cursor: pointer;
+
+      &:hover {
+          background-color: white;
+          color: $blue !important;
+      }
+
+      @include mq($from: tablet) {
+        width: 18%;
+      }
+
+      @include mq($from: desktop) {
+        margin-top: 0px;
+        padding-top: 9px;
+      }
+
+      @include mq($from: wide){
+        width:18%;
+      }
+    }
+
+    @include mq($from: tablet) {
+      width: 90%;
+    }
+
+    @include mq($from: desktop) {
+      width: 70%;
+      margin-top: 0px;
+      margin-right: 1%;
+      float: left;
+    }
+  }
+
+  button {
+    margin-left: 1%;
+    cursor: pointer;
+    width: 100.5%;
+    margin: 0;
+    margin-top: 10px;
+    padding: 8px;
+
+    @include mq($from: desktop) {
+      margin-left:0;
+      width: 17%;
+      margin-top:0;
+      float: left;
+    }
+
+    &:hover {
+      background-color: $pink !important;
+      border: 1px solid $pink !important;
+    }
+  }
+
+  button {
+    @include grand-matter-head($small);
+  }
+
+  input {
+    @include grand-matter-sub($small);
+  }
+}
+
+.grand-matter__newsletter-cta {
+  @include mq($from: desktop) {
+    float: left;
+    width: 100%;
+    margin-bottom: 38px;
+  }
+  h1{
+    @include grand-matter-head($big);
+    color: $yellow;
+    margin-bottom: 0px;
+  }
+  h2 {
+    @include grand-matter-head($big);
+    margin-left: 10px;
+    line-height: calc(#{$big - 10px});
+    margin-left: 23px;
+    color: $yellow;
+  }
+
+  p {
+      float: right;
+      margin-top: -50px;
+
+      @include grand-matter-sub($small);
+      color: white;
+      margin-top: 10px;
+      float: none;
+  }
+}

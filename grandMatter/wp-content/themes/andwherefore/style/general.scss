@@ -1,0 +1,233 @@
+//colours
+
+$blue: #0f3b62;
+$green: #0b645e;
+$pink: #fec9c0;
+$yellow: #e5c83d;
+$black: #333;
+$grey: #676767;
+
+$small: 18px;
+$smallish: 22px;
+$medium: 24px;
+$big: 32px;
+$massive: 48px;
+$realBig: 64px;
+$splash: 60px;
+$splashDesktop: 100px;
+
+//type
+
+@mixin grand-matter-head($size){
+  font-family: 'Druk Text Wide';
+  letter-spacing: -3px;
+  font-size: $size;
+}
+
+@mixin grand-matter-sub($size) {
+  font-family: 'caslon';
+  font-size: $size;
+  word-spacing: -5px;
+}
+
+body {
+  background-color: $green;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  overflow-x: hidden;
+
+  &.aw__gallery {
+      background-color: #fff;
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+
+    &:hover {
+      color: $pink;
+      border-bottom: 1px solid $pink;
+    }
+}
+
+.gm-container {
+  position: relative;
+  width: 100%;
+
+  &.pad {
+    padding-left: 5%;
+    padding-right: 5%;
+    width: 90%;
+  }
+
+  @include mq($from: desktop) {
+    width: 980px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  @include mq($from: wide) {
+    width: 1300px;
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    margin-left: -50px;
+  }
+
+  100% {
+    opacity: 1;
+    margin-left: 0px;
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(50px)
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0px)
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes overlayTitle {
+  0%{
+    top: 0px;
+    bottom: auto;
+  }
+  25% {
+    left: auto;
+    right: 0px;
+    bottom: 0px;
+    top: auto;
+  }
+  50% {
+    top: 100px;
+    bottom: auto;
+    right: 0px;
+  }
+  75% {
+    bottom: -50px;
+    left: 0px;
+    right: auto;
+  }
+}
+
+@keyframes overlayTitleTwo {
+  0% {
+    bottom: 0px;
+    top: auto;
+  }
+  25% {
+    right: 0px;
+    top: 0px;
+    bottom: auto;
+    left: auto;
+  }
+  50% {
+    bottom: 0px;
+    top: auto;
+    right: 0px;
+    left: auto;
+  }
+  75% {
+    top: -50px;
+    left: 0px;
+    right: auto;
+    bottom: 0px;
+  }
+}
+
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+.mobile-only {
+  display: block;
+  @include mq($from: desktop) {
+    display: none;
+  }
+}
+
+@keyframes fadeInImage {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.fade-in-image {
+    opacity: 0;
+    animation-name: fadeInImage;
+    animation-duration: 0.5s;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
