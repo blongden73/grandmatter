@@ -3,6 +3,7 @@
 <div class="gm-container pad">
     <div class="aw__gallery-intro">
         <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+            <div class="aw__gallery-headline"><?php the_title(); ?></div>
             <div class="aw__gallery-intro-text"><?php the_content(); ?></div>
         <?php endwhile; else: ?>
             <p>Sorry, there are no posts to display</p>

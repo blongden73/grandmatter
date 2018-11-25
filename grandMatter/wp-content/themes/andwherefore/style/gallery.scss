@@ -6,9 +6,19 @@
     @include grand-matter-sub($medium);
     max-width: 500px;
 
-    @include mq($from: desktop) {
+    @include mq($from: wide) {
         transform: translateX(24%);
     }
+
+    p {
+        margin-bottom: 20px;
+    }
+}
+
+.aw__gallery-headline {
+    @include grand-matter-head($medium);
+    margin-bottom: 20px;
+    letter-spacing: -1px;
 }
 
 .aw_gallery {

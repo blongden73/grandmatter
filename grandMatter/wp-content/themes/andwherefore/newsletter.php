@@ -1,7 +1,6 @@
 <div class="grand-matter__newsletter">
     <div class="grand-matter__newsletter-cta">
-      <h1>Direct</h1>
-      <h2>Matter</h2>
+      <h1>Sign up to our email</h1>
     </div>
     <div class="mailchimp-newsletter span12">
       <!-- Begin MailChimp Signup Form -->

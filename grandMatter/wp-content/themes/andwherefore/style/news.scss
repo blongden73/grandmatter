@@ -46,6 +46,10 @@
 				color: $green;
 			}
 		}
+
+		&.aw__team {
+			background-color: $yellow;
+		}
 	}
 }
 
@@ -63,6 +67,7 @@
 		@include grand-matter-head($medium + 4px);
 		margin-top: 10px;
 		margin-bottom: 10px;
+		letter-spacing: -2px;
 	}
 	p {
 		color: white;
@@ -184,5 +189,38 @@
 			left: -30px;
 		}
 	}
+}
 
+.grand-matter__artist-image {
+	&:hover {
+		.aw__event-tab {
+		    font-family: 'Druk Text Wide';
+		    color: #0d2540;
+		    font-size: 3vw;
+		    display: inline;
+		    position: absolute;
+		    top: 161px;
+		    letter-spacing: -2px;
+		    margin-left: -10px;
+			background-color: transparent;
+		}
+		img {
+			mix-blend-mode: soft-light;
+			-webkit-filter: grayscale(100%);
+		}
+	}
+}
+
+.grand-matter__featured-image {
+	background-color: $pink;
+}
+
+.aw__event-tab {
+	background-color: $pink;
+	font-family: 'Druk Text Wide';
+	color: #121212;
+	font-size: 18px;
+	padding: 6px 6px 6px 6px;
+	display: inline;
+	position: absolute;
 }

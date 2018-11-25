@@ -52,6 +52,16 @@
 
             &.visible {
                 opacity: 1;
+
+                @include mq($from: desktop) {
+                    height: 78%;
+                    margin-top: 76px;
+                }
+
+                @include mq($from: wide) {
+                    height: 100%;
+                    margin-top: 0;
+                }
             }
 
             &:nth-child(1) {
@@ -101,6 +111,13 @@
     }
 }
 
+.aw__home-lock-up {
+    svg {
+        width: 100%;
+        height: auto;
+    }
+}
+
 .aw__splash-text {
     width: 100%;
     position: absolute;
@@ -113,16 +130,12 @@
         line-height: 48px;
         color: #fff;
 
-        @include mq($from: desktop) {
-            margin-left: 50px;
-        }
-
         span {
             display: block;
         }
 
         @include mq($from: tablet) {
-            font-size: 12.5vw;
+            font-size: 13.33vw;
             line-height: 9.5vw;
         }
 
@@ -163,6 +176,10 @@
             @include mq($from: desktop) {
                 font-size: 12.5vw;
             }
+
+            &.collection {
+                float: right;
+            }
         }
     }
 }
@@ -175,8 +192,22 @@
         width: 25%;
     }
 
+    @include mq($from: desktop) {
+        transform: translateY(100px);
+    }
+
     .aw__trail-text {
         color: #fff;
+        position: relative;
+        margin-top: 10px;
+
+        a {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+        }
 
         span {
             display: block;
@@ -197,14 +228,22 @@
     width: 50%;
     margin-left: auto;
     font-family: 'caslon';
-    font-size: 18px;
-    line-height: 18px;
+    font-size: 15px;
+    line-height: 16px;
     color: #fff;
+    padding-top: 60px;
+    word-spacing: -5px;
 
-    @include mq($from: tablet) {
-        font-size: 25px;
-        line-height: 26px;
+    @include mq($from: desktop) {
+        font-size: 18px;
+        line-height: 19px;
         width: 25%;
+        margin-right: auto;
+        margin-left: 0;
+        transform: translateY(-90px);
+    }
+    @include mq($from: wide) {
+        transform: translateY(-130px);
     }
 }
 
@@ -216,21 +255,34 @@
     background-position: center;
     background-repeat: no-repeat;
     color: $green;
-    @include grand-matter-head($big);
+    @include grand-matter-head($medium);
+    letter-spacing: -1px;
+    font-size: 30px;
+    line-height: 32px;
+
 
     @include mq($from: tablet) {
         @include grand-matter-head($massive);
+        line-height: $massive + 5px;
     }
 
     h1 {
+        padding-top: 30px;
+        opacity: 0;
+        transition: opacity ease-in-out 0.5s;
+
         @include mq($from: tablet) {
             width: 76%;
             margin-left: 19%;
-            padding-top: 61px;
+            padding-top: 60px;
         }
 
         @include mq($from: desktop) {
-            width: 60%;
+            width: 51%;
+        }
+
+        &.display {
+            opacity: 1;
         }
     }
 }
@@ -274,6 +326,8 @@
 
 .aw__title-article {
     @include grand-matter-head($big);
+    margin-top: 6px;
+    margin-bottom: 6px;
     color: #fff;
 
     @include mq($from: tablet) {
@@ -298,7 +352,7 @@
         z-index: 0;
 
         @include mq($from: desktop) {
-            width: 50%;
+            width: 48%;
             float: left;
         }
 
@@ -310,20 +364,20 @@
     }
 
     .aw__big-news-title {
-        margin-top: -50px;
+        margin-top: 20px;
         z-index: 10;
         position: relative;
 
         @include mq($from: desktop) {
             margin-top: 60px;
-            margin-left: -60px;
+            margin-left: 2%;
             float: left;
-            max-width: 50%;
+            max-width: 48%;
         }
 
         h1 {
             @include grand-matter-head($big);
-            color: #fff;
+            color: $green;
 
             @include mq($from: desktop) {
                 @include grand-matter-head($massive);
@@ -332,11 +386,12 @@
 
         p {
             font-family: 'caslon';
-            color: #fff;
+            color: $green;
         }
 
         h2 {
             font-family: 'Druk XCond Super';
+            color: $green;
         }
 
     }
@@ -368,9 +423,13 @@
 
 .page-title{
     position: absolute;
-    bottom: -37px;
+    bottom: 0;
     z-index: 10000;
     width: 100%;
+
+    @include mq($from: desktop) {
+        bottom: -37px;
+    }
 
     .grand-matter__artist-title {
         h1 {
@@ -389,7 +448,8 @@
 }
 
 .aw__big-type-content {
-    padding-bottom: 50px;
+    padding-bottom: 40px;
+    padding-top: 20px;
     @include grand-matter-sub($big);
     color: #fff;
 
@@ -401,5 +461,43 @@
 
     @include mq($from: desktop) {
         width: 60%;
+    }
+
+    p {
+        margin-bottom: 20px;
+    }
+}
+
+
+.addtoany_share_save_container {
+    height: 30px;
+    width: 100%;
+    overflow: hidden;
+
+    @include mq($from: desktop) {
+        position: absolute;
+        width: auto;
+        right: -150px;
+        top: 0px;
+    }
+
+    .a2a_kit {
+        height: 30px;
+
+        a {
+            height: 30px;
+            width: 30px;
+            background-color: blue;
+            display: block;
+            float: left;
+            margin-right: 10px;
+
+            &.a2a_button_facebook {
+
+            }
+            &.a2a_button_twitter {
+
+            }
+        }
     }
 }

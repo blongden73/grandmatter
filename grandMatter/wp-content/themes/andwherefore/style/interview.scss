@@ -1,0 +1,61 @@
+.aw__interview-image {
+    background-color: $pink;
+    margin-bottom: 20px;
+
+    @include mq($from: desktop) {
+        height: 90vh;
+        margin-bottom: 0;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+        display: block;
+
+        @include mq($from: desktop) {
+            width: 30%;
+            height: auto;
+            display: block;
+        }
+
+        &.aw__interview-left {
+            display: none;
+            @include mq($from: desktop) {
+                float: left;
+                display: block;
+                transform: translate(-56%, 23%);
+            }
+        }
+        &.aw__interview-right {
+            @include mq($from: desktop) {
+                float: right;
+            }
+        }
+    }
+
+
+    .aw__article-intro-text {
+        @include grand-matter-sub($medium);
+        line-height: 28px;
+        margin-bottom: 50px;
+        max-width: 560px;
+        position: relative;
+        padding-left: 20px;
+        margin-right: 20px;
+        padding-top: 20px;
+
+        @include mq($from: desktop) {
+            width: 30%;
+            float: left;
+            height: 90vh;
+            padding-top: 0;
+        }
+    }
+
+    .aw__interview-standfirst-wrapper {
+        @include mq($from: desktop) {
+            position: absolute;
+            bottom: 20px;
+        }
+    }
+}

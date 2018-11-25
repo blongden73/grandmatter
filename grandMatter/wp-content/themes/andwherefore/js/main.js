@@ -60,26 +60,26 @@ hamburger[0].addEventListener('click', function(){
   menu[0].classList.toggle('clicked');
 });
 
-document.addEventListener('scroll', function(){
-  var artists = document.getElementsByClassName('grand-matter__artists');
-  if(artists.length >= 1){
-    var artistTop = artists[0].getBoundingClientRect().top;
-  }
-  var artistContent = document.querySelector('.grand-matter__artist-content');
-  if(artistContent){
-    var artistContentTop = artistContent.getBoundingClientRect().top;
-  }
-  if(artists.length >= 1 && artistTop <= 100 || artistContent && artistContentTop <= 100){
-    header.classList.add('blue');
-  }else {
-    header.classList.remove('blue');
-  }
+// document.addEventListener('scroll', function(){
+//   var artists = document.getElementsByClassName('grand-matter__artists');
+//   if(artists.length >= 1){
+//     var artistTop = artists[0].getBoundingClientRect().top;
+//   }
+//   var artistContent = document.querySelector('.grand-matter__artist-content');
+//   if(artistContent){
+//     var artistContentTop = artistContent.getBoundingClientRect().top;
+//   }
+//   if(artists.length >= 1 && artistTop <= 100 || artistContent && artistContentTop <= 100){
+//     header.classList.add('blue');
+//   }else {
+//     header.classList.remove('blue');
+//   }
   // if(artists.length >= 1 && artistTop <= -120 && !isMobile) {
   //   artistTitle.classList.add('fixed');
   // }else if(artists.length >= 1 && artistTop >= -120 && !isMobile) {
   //   artistTitle.classList.remove('fixed');
   // }
-});
+// });
 
 function backgroundImage(){
   var rand = Math.floor(Math.random() * (splash.length - 0)) + 0;
@@ -106,6 +106,7 @@ function animation(){
 
 function onScrollLoader() {
     var image = document.getElementsByClassName('loadOnScroll');
+    var text = document.getElementsByClassName('loadTextOnScroll');
     if(image) {
         document.addEventListener('scroll', function(){
             for(i=0; i<image.length; i++) {
@@ -119,6 +120,16 @@ function onScrollLoader() {
             }
         })
     }
+    if(text) {
+        document.addEventListener('scroll', function(){
+            for(i=0; i<text.length; i++){
+                if(elementInViewport(text[i])){
+                    text[i].classList.add('display');
+                }
+            }
+        });
+    }
+
 }
 
 function galleryNumbers() {

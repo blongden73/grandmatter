@@ -10,13 +10,13 @@
   </div>
   <div class="gm-container pad">
       <div class="grand-matter__artist-title">
-        <h1>New season</h1>
+        <h1>Latest</h1>
       </div>
   </div>
 
   <div class="aw__season-divider">
     <div class="gm-container pad">
-        <h1>The first collection of &wherefore explores blurred boundaries, diversity and identity within the visual arts, and in particular how this can be used to challenge social labels and traditional conventions</h1>
+        <h1 class="loadTextOnScroll"><?php the_field('introduction', 240) ?></h1>
     </div>
   </div>
   <div class="gm-container pad">

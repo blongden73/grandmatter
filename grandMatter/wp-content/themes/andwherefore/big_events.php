@@ -6,7 +6,7 @@
                     <?php the_post_thumbnail(); ?>
                 </div>
                 <div class="aw__big-news-title">
-                    <h2 class="aw__label">LABEL</h2>
+                    <h2 class="aw__label"><?php the_category(); ?></h2>
                     <h1><?php the_title(); ?></h1>
                     <div class="aw__excerpt"><?php the_excerpt(); ?></div>
                 </div>

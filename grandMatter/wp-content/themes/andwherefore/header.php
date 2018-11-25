@@ -38,14 +38,17 @@
         <div class="grand-matter__logo">
           <?php get_template_part('main-logo');?>
         </div>
-        <div class="grand-matter__menu">
-          <?php wp_nav_menu( array( 'theme_location' => 'main-menu' ) ); ?>
-        </div>
         <div class="grand-matter__secondary-logo"></div>
         <div class="grand-matter__hamburger">
           <div class="ham-top"></div>
           <div class="ham-middle"></div>
           <div class="ham-bottom"></div>
         </div>
+    </div>
+    <div class="grand-matter__menu">
+     <div class="gm-container">
+         <?php wp_nav_menu( array( 'theme_location' => 'main-menu' ) ); ?>
+         <p>&wherefore is a new editorial platform made to start conversations, ask all the right questions, & delve into the ‘why’ in creativity.</p>
+     </div>
     </div>
 </div>

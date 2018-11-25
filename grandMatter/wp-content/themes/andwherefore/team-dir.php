@@ -1,16 +1,16 @@
-<div class="grand-matter__news-wrapper aw__curators <?php if( get_field('news_switch', 58) ): ?>news__on<?php endif; ?>">
+<div class="grand-matter__news-wrapper aw__team aw__curators <?php if( get_field('news_switch', 58) ): ?>news__on<?php endif; ?>">
 	<div class="gm-container pad">
 		<div class="grand-matter__artist-title news-title">
-	      <h1>Curators</h1>
+	      <h1>Team</h1>
 	    </div>
 		<div class="grand-matter__intro">
-	      <?php $the_query = new WP_Query( 'page_id=173' ); ?>
+	      <?php $the_query = new WP_Query( 'page_id=248' ); ?>
 	          <?php while ($the_query -> have_posts()) : $the_query -> the_post();  ?>
 	              <?php the_content(); ?>
 	          <?php endwhile;?>
 	      <?php rewind_posts(); ?>
 	    </div>
-		<?php query_posts('cat=13&showposts=9999'); ?>
+		<?php query_posts('cat=14&showposts=9999'); ?>
 	        <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 				<div class="grand-matter__artist-image news-image">
                     <div class="grand-matter__featured-image news-featured-image">

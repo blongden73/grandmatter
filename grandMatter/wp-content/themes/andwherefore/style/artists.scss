@@ -43,12 +43,14 @@
   height: 300px;
   position: relative;
   margin-bottom: 20px;
+  margin-top: 20px;
 
   @include mq($from: tablet) {
     width: 48%;
     height: 350px;
     margin-right: 2%;
     float: left;
+    margin-top: 0;
   }
 
   &:nth-child(odd) {
